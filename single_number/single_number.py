@@ -4,8 +4,16 @@ Returns: an integer
 '''
 def single_number(arr):
     # Your code here
-
-    pass
+    output = []
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if(i != j):
+                if ((arr[i] == arr[j])):
+                    output.append(arr[i])
+                
+    diff = [k for k in output + arr if k not in output or k not in arr]
+    print(diff)
+    return diff
 
 
 if __name__ == '__main__':
