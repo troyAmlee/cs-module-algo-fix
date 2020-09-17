@@ -3,9 +3,23 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def moving_zeroes(arr):
-    # Your code here
+    count = 0
+    for j,i in enumerate(arr):
+        while((arr[j] == 0) and j+1 != len(arr)):
+            count += 1
+            j+=1
+        if(j != len(arr)):
+            temp = arr[j]
+            arr[j] = arr[j-count]
+            arr[j-count] = temp
+            count = 0
+        if(i != 0):
+            pass
 
-    pass
+                
+
+
+    return arr
 
 
 if __name__ == '__main__':

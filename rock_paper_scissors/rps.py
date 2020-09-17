@@ -3,68 +3,41 @@
 import sys
 
 def rock_paper_scissors(n):
-  # Your code here
-  permutations = 3**n
-  
-  counterperm = 1
+	empty_list = [["rock"],["paper"],["scissors"]]
+	rock = ["rock"]
+	paper = ["paper"]
+	scissors = ["scissors"]
 
-  counterpermutation = 3**counterperm
+	if n == 0:
+		print("So we just gonna sit here?")
+		return None
 
-  arr = []
+	if n == 1:
+		print(empty_list)
+		return empty_list
+	else:
 
-  count = 0
-  
-  if(n == 0):
-    return arr
+		def rps_rounds(n, rps_list):
+			new_list = []
+			
+			if n == 1:
+				print(rps_list)
+				return rps_list
+			else:
+				for i in rps_list:
+					new_list.append(i + rock)
+					new_list.append(i + paper)
+					new_list.append(i + scissors)
 
-  def getarray(perm):
-    r = ["rock"]
-    p = ["paper"]
-    s = ["scissors"]
-    rps = [r, p, s]
-    indexone = 0
-    indextwo = 0
-    permutations = 3**perm
-    count = 0
+				rps_rounds(n-1, new_list)
 
-    arr = []
-    if(n == 0):
-      return arr
-
-    for i in range(len(rps)):
-      
-      
-      for j in range(permutations//3):
-        arr.append(rps[indexone])
-      indexone += 1
-
-    return arr
-
-  print(getarray(n))
-
-  rock_paper_scissors(n - 1)
-
-    
-    
-
-
-  
-
-
-
-
-
-
-
-      
-
-
-    
+			
+		rps_rounds(n,empty_list)
 
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
     num_plays = int(sys.argv[1])
-    print(rock_paper_scissors(num_plays))
+    rock_paper_scissors(num_plays)
   else:
     print('Usage: rps.py [num_plays]')
