@@ -10,7 +10,7 @@ def rock_paper_scissors(n):
 
 	if n == 0:
 		print("So we just gonna sit here?")
-		return None
+		return [[]]
 
 	if n == 1:
 		print(empty_list)
@@ -29,10 +29,11 @@ def rock_paper_scissors(n):
 					new_list.append(i + paper)
 					new_list.append(i + scissors)
 
-				rps_rounds(n-1, new_list)
+				return rps_rounds(n-1, new_list)
 
 			
-		rps_rounds(n,empty_list)
+		return rps_rounds(n,empty_list)
+
 
 
 if __name__ == "__main__":
